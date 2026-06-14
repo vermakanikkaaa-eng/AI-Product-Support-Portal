@@ -67,3 +67,8 @@ and slowly diagnoses the root cause of the problem.
 -Analytics Dashboard
 
 ## 📁 Project Structure
+|-index.html #Product Marketplace
+|-product.html #Product detail page
+|-assistant.html #AI Diagnostic Assistant
+|-style.css #Styling
+|-script.js #JavaScript logic
