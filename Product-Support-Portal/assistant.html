@@ -114,7 +114,8 @@
 
 <script>
 // ⚠️ APNI KEY YAHAN DAALO - sirf yahi ek jagah change karni hai
-const OPENROUTER_API_KEY = "";
+const OPENROUTER_API_KEY = prompt("Enter API Key");
+
 
 let chatHistory = [];
 let selectedProduct = "";
@@ -122,7 +123,21 @@ let selectedProduct = "";
 function startChat() {
     selectedProduct = document.getElementById("assistantProduct").value;
     if (!selectedProduct) return;
-
+// Purani chat load karo
+const saved = localStorage.getItem("lastChat_" + selectedProduct);
+if (saved) {
+    const data = JSON.parse(saved);
+    if (confirm("Purani conversation continue karein?")) {
+        chatHistory = data.history;
+        document.getElementById("chatBox").innerHTML = "";
+        document.getElementById("chatArea").style.display = "block";
+        chatHistory.forEach(msg => {
+            if (msg.role === "user") addMessage("user", msg.content);
+            if (msg.role === "assistant") addMessage("ai", msg.content);
+        });
+        return;
+    }
+}
     // Reset sab
     chatHistory = [];
     document.getElementById("chatBox").innerHTML = "";
@@ -141,7 +156,7 @@ function startChat() {
         - Slowly narrow down the cause
         - Only give solution when you are confident about the root cause
         - Keep responses short and clear
-        - Use simple Hindi-English mix language
+        - Always must respond in English only,never use Hindi or any other language
         - When giving solution, provide clear step-by-step instructions`
     });
 
@@ -158,6 +173,15 @@ function addMessage(type, text) {
     
     chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
+    saveChat();
+}
+function saveChat() {
+    const chatData = {
+        product: selectedProduct,
+        history: chatHistory,
+        time: new Date().toLocaleString()
+    };
+    localStorage.setItem("lastChat_" + selectedProduct, JSON.stringify(chatData));
 }
 
 function addTyping() {
@@ -194,7 +218,10 @@ async function sendMessage() {
     addTyping();
 
     try {
+        console.log("Send button clicked");
+
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
@@ -203,14 +230,17 @@ async function sendMessage() {
                 "X-Title": "Product Support Portal"
             },
             body: JSON.stringify({
-                model: "meta-llama/llama-3.1-8b-instruct:free",
+                model:"openai/gpt-oss-120b:free",
                 messages: chatHistory,
                 max_tokens: 400,
                 temperature: 0.7
             })
         });
+        console.log("Response received");
 
         const data = await response.json();
+        console.log(data);
+
         removeTyping();
 
         if (data.choices && data.choices[0]) {
@@ -224,7 +254,7 @@ async function sendMessage() {
 
             addMessage("ai", aiReply);
         } else {
-            addMessage("ai", "Sorry, kuch error aayi. Dobara try karo! ❌");
+            addMessage("ai", "Server busy hai 5-10 second baad try karna.");
             console.error("API Error:", data);
         }
 
