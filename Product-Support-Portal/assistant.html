@@ -114,7 +114,8 @@
 
 <script>
 // ⚠️ APNI KEY YAHAN DAALO - sirf yahi ek jagah change karni hai
-const OPENROUTER_API_KEY = prompt("Enter API Key");
+const OPENROUTER_API_KEY = prompt("Enter your API Key");
+
 
 
 let chatHistory = [];
@@ -156,7 +157,10 @@ if (saved) {
         - Slowly narrow down the cause
         - Only give solution when you are confident about the root cause
         - Keep responses short and clear
-        - Always must respond in English only,never use Hindi or any other language
+        - Always must respond in Hinglish only,never use Hindi or any other language
+        -Do not generate long reports
+        -Keep finl diagnosis under 4 lines
+        -Keep recommended solutions short and practical
         - When giving solution, provide clear step-by-step instructions`
     });
 
@@ -253,6 +257,14 @@ async function sendMessage() {
             });
 
             addMessage("ai", aiReply);
+            if (
+    aiReply.toLowerCase().includes("replace") ||
+    aiReply.toLowerCase().includes("repair") ||
+    aiReply.toLowerCase().includes("solution") ||
+    aiReply.toLowerCase().includes("root cause")
+) {
+    generateReport(aiReply);
+}
         } else {
             addMessage("ai", "Server busy hai 5-10 second baad try karna.");
             console.error("API Error:", data);
@@ -263,6 +275,19 @@ async function sendMessage() {
         addMessage("ai", "Internet connection check karo aur dobara try karo! ❌");
         console.error("Fetch Error:", error);
     }
+}
+function generateReport(solution) {
+
+    const report = `
+📋 DIAGNOSTIC REPORT
+
+Product: ${selectedProduct}
+
+Issue: Diagnosed
+Status: Resolved ✅
+`;
+
+    addMessage("ai", report);
 }
 </script>
 
