@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="product-container">
+
+    <h1>Product Support Portal</h1>
+
+    <h2>Select Product</h2>
+
+    <select id="productSelect" onchange="showProductDetails()">
+        <option value="">Choose Product</option>
+        <option value="activa">Honda Activa 6G</option>
+        <option value="ac">LG Split AC</option>
+        <option value="ro">Kent RO</option>
+        <option value="wm">Samsung Washing Machine</option>
+        <option value="laptop">Dell Inspiron Laptop</option>
+    </select>
+
+    <div id="productDetails">
+        <p>Select a product to view details.</p>
+    </div>
+
+    <br>
+
+    <button onclick="window.location.href='index.html'">
+        Back To Marketplace
+    </button>
+
+</div>
+
+<script>
+
+function showProductDetails(){
+
+let product = document.getElementById("productSelect").value;
+let details = document.getElementById("productDetails");
+
+if(product === "activa"){
+
+details.innerHTML = `
+<h1>Honda Activa 6G</h1>
+
+<h2>Description</h2>
+<p>
+Honda Activa 6G is a reliable scooter designed for daily commuting.
+It offers smooth performance, fuel efficiency and low maintenance.
+</p>
+
+<h2>Product Information</h2>
+<p><strong>Category:</strong> Scooter</p>
+<p><strong>Company:</strong> Honda</p>
+<p><strong>Model:</strong> Activa 6G</p>
+<p><strong>Warranty:</strong> 3 Years</p>
+
+<h2>Documentation & Resources</h2>
+<ul>
+<li>📄 User Manual.pdf</li>
+<li>📄 Service Manual.pdf</li>
+<li>📄 Horn Troubleshooting Guide</li>
+<li>🎥 Battery Maintenance Video</li>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+<li>Horn Not Working</li>
+<li>Battery Draining</li>
+<li>Engine Not Starting</li>
+</ul>
+
+<h2>Maintenance Schedule</h2>
+<ul>
+<li>🔧 First Service - 1000 km</li>
+<li>🔧 Engine Oil Check - Every 3000 km</li>
+</ul>
+
+<button onclick="window.location.href='assistant.html'">
+Open Diagnostic Assistant
+</button>
+`;
+
+}
+
+else if(product === "ac"){
+
+details.innerHTML = `
+<h1>LG Split AC</h1>
+
+<h2>Description</h2>
+<p>
+Energy efficient air conditioner with smart cooling technology.
+</p>
+
+<h2>Product Information</h2>
+<p><strong>Category:</strong> Air Conditioner</p>
+<p><strong>Company:</strong> LG</p>
+<p><strong>Warranty:</strong> 5 Years</p>
+
+<h2>Documentation & Resources</h2>
+<ul>
+<li>📄 User Manual.pdf</li>
+<li>📄 Cooling Troubleshooting Guide</li>
+<li>🎥 Maintenance Video</li>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+<li>Not Cooling</li>
+<li>Water Leakage</li>
+<li>Remote Not Working</li>
+</ul>
+
+<h2>Maintenance Schedule</h2>
+<ul>
+<li>🔧 Filter Cleaning - Monthly</li>
+<li>🔧 Gas Inspection - Yearly</li>
+</ul>
+
+<button onclick="window.location.href='assistant.html'">
+Open Diagnostic Assistant
+</button>
+`;
+
+}
+
+else if(product === "ro"){
+
+details.innerHTML = `
+<h1>Kent RO</h1>
+
+<h2>Description</h2>
+<p>
+Advanced water purifier with RO and UV purification.
+</p>
+
+<h2>Product Information</h2>
+<p><strong>Category:</strong> Water Purifier</p>
+<p><strong>Company:</strong> Kent</p>
+<p><strong>Warranty:</strong> 1 Year</p>
+
+<h2>Documentation & Resources</h2>
+<ul>
+<li>📄 User Manual.pdf</li>
+<li>📄 Filter Replacement Guide</li>
+<li>🎥 Installation Video</li>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+<li>No Water Flow</li>
+<li>Bad Taste</li>
+<li>Water Leakage</li>
+</ul>
+
+<h2>Maintenance Schedule</h2>
+<ul>
+<li>🔧 Filter Change - Every 12 Months</li>
+</ul>
+
+<button onclick="window.location.href='assistant.html'">
+Open Diagnostic Assistant
+</button>
+`;
+
+}
+
+else if(product === "wm"){
+
+details.innerHTML = `
+<h1>Samsung Washing Machine</h1>
+
+<h2>Description</h2>
+<p>
+Fully automatic washing machine with advanced wash cycles.
+</p>
+
+<h2>Product Information</h2>
+<p><strong>Category:</strong> Washing Machine</p>
+<p><strong>Company:</strong> Samsung</p>
+<p><strong>Warranty:</strong> 2 Years</p>
+
+<h2>Documentation & Resources</h2>
+<ul>
+<li>📄 User Manual.pdf</li>
+<li>📄 Maintenance Guide</li>
+<li>📄 Error Code List</li>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+<li>Machine Not Starting</li>
+<li>Water Not Draining</li>
+<li>Excessive Vibration</li>
+</ul>
+
+<h2>Maintenance Schedule</h2>
+<ul>
+<li>🔧 Drum Cleaning - Monthly</li>
+</ul>
+
+<button onclick="window.location.href='assistant.html'">
+Open Diagnostic Assistant
+</button>
+`;
+
+}
+
+else if(product === "laptop"){
+
+details.innerHTML = `
+<h1>Dell Inspiron Laptop</h1>
+
+<h2>Description</h2>
+<p>
+Reliable laptop for study, office work and development.
+</p>
+
+<h2>Product Information</h2>
+<p><strong>Category:</strong>Laptop</p>
+<p><strong>Company:</strong>Dell</p>
+<p><strong>Warranty:</strong>1 Year</p>
+<h2>Documentation & Resources</h2>
+<ul>
+    
+<li>📄 User Manual.pdf</li>
+<li>📄 Battery Guide</li>
+<li>📄 Driver Installation Guide</li>
+</ul>
+
+<h2>Common Issues</h2>
+<ul>
+<li>Not Charging</li>
+<li>Overheating</li>
+<li>Slow Performance</li>
+</ul>
+
+<h2>Maintenance Schedule</h2>
+<ul>
+<li>🔧 Battery Health Check - Every 6 Months</li>
+</ul>
+
+<button onclick="window.location.href='assistant.html'">
+Open Diagnostic Assistant
+</button>
+`;
+
+}
+
+else{
+details.innerHTML = `
+<p>Select a product to view details.</p>
+`;
+}
+
+}
+
+</script>
+
+</body>
+</html>
+
