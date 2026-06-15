@@ -3,6 +3,25 @@
 AI powered Product Support Portal that helps users diagnose 
 product issues through step by step troubleshooting instead of giving direct answers.
 
+# Problem Statement
+Build a platform where companies can list their products and users
+can quickly find answers to product related questions and issues.
+Unlike traditional chatbots or search engines,the asistant should 
+diagnose problems through investigation,elimination and resonong using
+trusted manufacturer documentation and support materials.
+
+
+# Solution
+Product Support Portal is an intelligent support platform that combines 
+product information with an AI-powered Diagnostic Assistant.
+Instead of providing direct answer,the assistant behaves likes a mechanic,technician
+or support engineer.It asks relevant diagnostic questions,investigates
+symptoms,identifies possible root causes and provides practical
+solutions based on the user's responses.
+This creates a more realistic troubleshooting experience and helps users 
+understand,maintain and resolve product issues effectively.
+
+
 ## 🌟 Features
 -Product Selection
 -AI Diagnostic Assistant
@@ -20,7 +39,7 @@ product issues through step by step troubleshooting instead of giving direct ans
 - AI Diagnostic Assistant — talks like a real technician
 - Chat history saved automatically
 
-##How It Works
+# How It Works
 1.Select a product.
 2.Describe the issue.
 3.AI Investigates the problem step by step.
@@ -43,6 +62,9 @@ and slowly diagnoses the root cause of the problem.
 - OpenRouter API (free) for AI
 - Model: OpenAI GPT-OSS-120B
 
+# Demo video link
+https://drive.google.com/file/d/1vbR9R0ZXbW2xFGBJW7TvyG2Cu0i9cYgS/view?usp=drivesdk
+
 ## 🚀 How to Run
 
 1. Clone this repo
@@ -59,7 +81,7 @@ and slowly diagnoses the root cause of the problem.
 3. Create API key
 4. Use any free model
 
-##Future Enhancements
+# Future Enhancements
 -Repair Cost Estimator
 -PDF Report Download
 -Admin Dashboard
