@@ -63,7 +63,7 @@ and slowly diagnoses the root cause of the problem.
 - Model: OpenAI GPT-OSS-120B
 
 # Demo video link
-https://drive.google.com/file/d/1vbR9R0ZXbW2xFGBJW7TvyG2Cu0i9cYgS/view?usp=drivesdk
+https://drive.google.com/file/d/1SRF2lmz9XuKMwBaYh_-JuA2ore4lmWlQ/view?usp=drivesdk
 
 ## 🚀 How to Run
 
